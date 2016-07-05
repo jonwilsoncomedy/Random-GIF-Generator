@@ -1,4 +1,8 @@
 #newRandom {
   margin-top: 50px;
-  margin-bottom: 100px;
+}
+
+#thirds {
+  display: inline-block;
+  width: 33%;
 }
