@@ -4,13 +4,16 @@
 
 $('document').ready(function() {
 
-// on load, gets random gif, appends it to DOM
-var randomGIF = $.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC');
+// When "New Random GIF" is clicked, gets random gif, appends it to DOM
+$('#newRandom').on('click', function(event) {
+  $('#gifContainer').empty();
+  var randomGIF = $.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC');
 
-randomGIF.then(function(data) {
-  var randomURL = data.data.image_url;
-  var $randomURLLink = $('<img src="' + randomURL + '"</img>');
-  $('#gifContainer').append($randomURLLink);
+  randomGIF.then(function(data) {
+    var randomURL = data.data.image_url;
+    var $randomURLLink = $('<img src="' + randomURL + '"</img>');
+    $('#gifContainer').append($randomURLLink);
+  });
 });
 
 // when submit button is clicked, empties contents of gifContainer, gets value
